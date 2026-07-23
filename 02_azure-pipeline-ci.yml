@@ -85,6 +85,7 @@ jobs:
 
 - job: Database
   displayName: 'Build Database'
+  condition: false
   pool:
     vmImage: 'windows-2022'
 
