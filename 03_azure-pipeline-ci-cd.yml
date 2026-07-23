@@ -376,6 +376,7 @@ stages:
 
 - stage: Test_Stage
   displayName: Test Stage
+  condition: false
   jobs:
   - job:
     displayName: Deploy to Test
@@ -386,6 +387,7 @@ stages:
           
 - stage: Prod_Stage
   displayName: Prod Stage
+  condition: false
   jobs:
   - job:
     displayName: Deploy to Prod
