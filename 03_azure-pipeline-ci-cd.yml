@@ -182,6 +182,7 @@ stages:
 - stage: Dev_Stage
   displayName: Create & Deploy to Dev
   dependsOn: Build_Stage
+  condition: false
   variables:
     azureSubscription: 'WebAppWithDatabaseDemo_spn' # couldn't be referenced
     ResourceGroupName: '$(Prefix)-$(Release.EnvironmentName)-$(UniqueId)-RG'
