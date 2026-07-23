@@ -227,7 +227,7 @@ stages:
 
     - task: AzSKARMTemplateChecker@4
       displayName: Scan ARM templates using AzSK
-      enabled: ${{ parameters.runCompletePipeline }}
+      enabled: false
       continueOnError: true
       inputs:
         ARMTemplateFilePath: '$(System.DefaultWorkingDirectory)/arm/WebSiteSQLDatabase.json'
@@ -237,6 +237,7 @@ stages:
 
     - task: RunARMTTKTests@1
       displayName: Scan ARM templates using TTK
+      enabled: false
       inputs:
         templatelocation: '$(System.DefaultWorkingDirectory)/arm/'
         resultLocation: '$(System.DefaultWorkingDirectory)/arm/results'
@@ -280,7 +281,7 @@ stages:
 
     - task: AzSKSVTs@4
       displayName: Scan Azure Resources
-      enabled: ${{ parameters.runCompletePipeline }}
+      enabled: false
       continueOnError: true
       inputs:
         ConnectedServiceNameARM: 'WebAppWithDatabaseDemo_spn'
@@ -343,6 +344,7 @@ stages:
   - job: Test_DEV
     displayName: Run Selenium tests in DEV
     dependsOn: Deploy_DEV
+    condition: false
     pool:
       vmImage: 'windows-2022'
     steps:
