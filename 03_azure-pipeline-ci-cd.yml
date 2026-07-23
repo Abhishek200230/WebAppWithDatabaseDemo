@@ -77,7 +77,7 @@ stages:
 
     - task: SonarCloudPrepare@4
       displayName: Prepare analysis on SonarCloud
-      enabled: ${{ parameters.runCompletePipeline }}
+      enabled: false
       inputs:
         SonarCloud: SonarCloud
         organization: abhishek200230
@@ -108,11 +108,13 @@ stages:
 
     - task: SonarCloudAnalyze@4
       displayName: Run Code Analysis
+      enabled: false
       inputs:
         jdkversion: JAVA_HOME_17_X64
 
     - task: SonarCloudPublish@4
       displayName: Publish Quality Gate Result
+      enabled: false
       inputs:
         pollingTimeoutSec: '300'
 
