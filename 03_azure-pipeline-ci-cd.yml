@@ -54,7 +54,7 @@ stages:
     
     - task: WhiteSource Bolt@20
       displayName: Scan Nuget Packages
-      enabled: ${{ parameters.runCompletePipeline }}
+      enabled: false
 
     - task: PowerShell@2
       displayName: Prepare for Sonar Cloud
